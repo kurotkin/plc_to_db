@@ -14,7 +14,7 @@ Project to collect data into a database
 
 
 ## Библиотеки
-- [JDBC driver - postgresql-42.0.0]:(https://jdbc.postgresql.org/download.html)
-- [create PDF - iText]:(http://itextpdf.com/)
-- [create PDF - Apache PDFBox]:(https://pdfbox.apache.org/)
-- [create PDF - BFO]:(http://bfo.com/products/pdf/)
+- []:(https://jdbc.postgresql.org/download.html "JDBC driver - postgresql-42.0.0")
+- []:(http://itextpdf.com/ "create PDF - iText")
+- []:(https://pdfbox.apache.org/ "create PDF - Apache PDFBox")
+- []:(http://bfo.com/products/pdf/ "create PDF - BFO")
