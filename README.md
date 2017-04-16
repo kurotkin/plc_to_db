@@ -1,6 +1,7 @@
 # plc_to_db
 Project to collect data into a database
 
+----------------------
 ## Описание по русски
 ### Получение данных
 - GET Запрос по http
@@ -14,7 +15,11 @@ Project to collect data into a database
 
 
 ## Библиотеки
-- JDBC driver - [a]:(https://jdbc.postgresql.org/download.html)
-- create PDF - [iText]:(http://itextpdf.com/)
-- create PDF - [Apache PDFBox]:(https://pdfbox.apache.org/)
-- create PDF - [BFO]:(http://bfo.com/products/pdf/)
+
+- [JDBCdriver]:(https://jdbc.postgresql.org/download.html/)
+- [create PDF - iText]:(http://itextpdf.com/)
+- [create PDF - Apache PDFBox]:(https://pdfbox.apache.org/)
+- [create PDF - BFO]:(http://bfo.com/products/pdf/)
+- [JSON parser]:(https://github.com/douglascrockford/JSON-java)
+
+---------------------
