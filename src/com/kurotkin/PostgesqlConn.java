@@ -20,4 +20,23 @@ public class PostgesqlConn {
         st.close();
         conn.close();
     }
+
+    public static void createTable () throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        PreparedStatement ps = conn.prepareStatement("CREATE TABLE IF NOT EXISTS vals(" +
+                                                                                        "CREATED_DATE NOT NULL PRIMARY KEY," +
+                                                                                        "username varchar(225) NOT NULL UNIQUE," +
+                                                                                        "password varchar(225)," +
+                                                                                        "islogged varchar(10))");
+        ps.executeUpdate();
+        ps.close();
+        conn.close();
+    }
+
+    private static java.sql.Timestamp getCurrentTimeStamp() {
+
+        java.util.Date today = new java.util.Date();
+        return new java.sql.Timestamp(today.getTime());
+
+    }
 }
