@@ -16,10 +16,10 @@ Project to collect data into a database
 
 ## Библиотеки
 
-- [JDBCdriver]:(https://jdbc.postgresql.org/download.html/)
-- [create PDF - iText]:(http://itextpdf.com/)
-- [create PDF - Apache PDFBox]:(https://pdfbox.apache.org/)
-- [create PDF - BFO]:(http://bfo.com/products/pdf/)
-- [JSON parser]:(https://github.com/douglascrockford/JSON-java)
+- [JDBC driver](https://jdbc.postgresql.org/download.html/)
+- [create PDF - iText](http://itextpdf.com/)
+- [create PDF - Apache PDFBox](https://pdfbox.apache.org/)
+- [create PDF - BFO](http://bfo.com/products/pdf/)
+- [JSON parser](https://github.com/douglascrockford/JSON-java)
 
 ---------------------
