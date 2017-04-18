@@ -1,6 +1,4 @@
 package com.kurotkin;
-import org.json.*;
-
 import java.sql.SQLException;
 
 public class Main {
