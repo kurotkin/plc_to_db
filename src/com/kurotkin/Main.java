@@ -16,7 +16,9 @@ public class Main {
         PostgesqlConn.getCour();
         //JSONObject resultJson = new JSONObject("jsonString");
 
-        String jsonLine = TestVals.getJSON();
+        String jsonLine = "{\"data\": { \"translations\": [ { \"translatedText\": \"Hello world\"}]}} ";
+
+        //String jsonLine = TestVals.getJSON();
         JsonElement jelement = new JsonParser().parse(jsonLine);
         JsonObject jobject = jelement.getAsJsonObject();
         jobject = jobject.getAsJsonObject("data");
