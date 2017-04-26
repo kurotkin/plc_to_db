@@ -23,4 +23,8 @@ Project to collect data into a database
 - [create PDF - BFO](http://bfo.com/products/pdf/)
 - [JSON parser](https://github.com/douglascrockford/JSON-java)
 
+
+## Информация
+
+- [О метках времени](https://habrahabr.ru/post/273177/)
 ---------------------

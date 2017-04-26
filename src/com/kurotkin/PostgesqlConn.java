@@ -49,6 +49,37 @@ public class PostgesqlConn {
         conn.close();
     }
 
+    public static void createTable3 () throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        Statement stmt = conn.createStatement();
+        String sql = "CREATE TABLE IF NOT EXISTS T_TIME " +
+                "(ID timestamptz PRIMARY KEY NOT NULL," +
+                " S1 REAL, " +
+                " S2 REAL, " +
+                " S3 REAL )";
+        stmt.executeUpdate(sql);
+        stmt.close();
+        conn.close();
+    }
+    public static void insert2 (Device[] data) throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        Statement stmt = conn.createStatement();
+
+        for(Device d : data) {
+            for (Content c : d.content) {
+                stmt.executeUpdate("CREATE TABLE IF NOT EXISTS " +
+                                        d.name + "_" + c.name +
+                                        " (ID timestamptz PRIMARY KEY NOT NULL, val REAL);");
+
+                stmt.executeUpdate("INSERT INTO " +
+                                        d.name + "_" + c.name +
+                                        " VALUES (now(), " + c.val.toString() + ");");
+            }
+        }
+        stmt.close();
+        conn.close();
+    }
+
     public static void insert () throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
         conn.setAutoCommit(false);

@@ -1,28 +1,28 @@
 package com.kurotkin;
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-
 import java.sql.SQLException;
-import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        System.out.println("Starting ...");
+
+        // Получение данных
         HTTPgetter getJson = new HTTPgetter("http://192.168.1.50/awp/json.htm");
-
-        //String jsonString = getJson.get();
-        String jsonString = TestVals.getJSON();
-        System.out.println(jsonString);
-        PostgesqlConn.getCour();
-        //JSONObject resultJson = new JSONObject("jsonString");
-
-        //String jsonLine = "{\"data\": { \"translations\": [ { \"translatedText\": \"Hello world\"}]}} ";
-
+        //String jsonLine = getJson.get();
         String jsonLine = TestVals.getJSON();
 
+        // Парсинг
         Gson gson = new Gson();
         Device[] data = gson.fromJson(jsonLine, Device[].class);
+
+        // Запирсь в БД
+        PostgesqlConn.insert2(data);
+
+    }
+
+
+
+    public static void printDevice(Device[] data) {
         for(Device d : data) {
             System.out.println(d.name);
             for (Content c : d.content) {
@@ -31,12 +31,5 @@ public class Main {
             System.out.println();
         }
         System.out.println(data[0].name);
-
-        PostgesqlConn.createTable2();
-        //PostgesqlConn.insert();
-        PostgesqlConn.select();
-        PostgesqlConn.update();
-        PostgesqlConn.del();
     }
-
 }
