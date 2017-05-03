@@ -13,8 +13,8 @@ public class Main {
             public void run() {
                 // Получение данных
                 HTTPgetter getJson = new HTTPgetter("http://192.168.1.50/awp/json.htm");
-                //String jsonLine = getJson.get();
-                String jsonLine = TestVals.getJSON();
+                String jsonLine = getJson.get();
+                //String jsonLine = TestVals.getJSON();
 
                 // Парсинг
                 Gson gson = new Gson();
@@ -23,25 +23,14 @@ public class Main {
                 // Запирсь в БД
                 try {
                     PostgesqlConn.insert2(data);
-                    System.out.println("Ok");
+                    System.out.println("Ok " + Printer.getT(data));
                 } catch (SQLException e) {
+                    System.out.println(e.getMessage());
                     e.printStackTrace();
                 }
             }
-        }, 0, 5, TimeUnit.SECONDS);
+        }, 0, 30, TimeUnit.SECONDS);
 
     }
 
-
-
-    public static void printDevice(Device[] data) {
-        for(Device d : data) {
-            System.out.println(d.name);
-            for (Content c : d.content) {
-                System.out.println(c.name + " = " + c.val.toString());
-            }
-            System.out.println();
-        }
-        System.out.println(data[0].name);
-    }
 }

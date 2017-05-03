@@ -8,9 +8,12 @@ import java.sql.*;
  * Created by Vitaly Kurotkin on 17.04.2017.
  */
 public class PostgesqlConn {
+    private static String hostName = "192.168.1.20";
+    private static String hostUser = "padmin";
+    private static String hostPass = "ab12345678";
 
     public static void getCour () throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://" + hostName + ":5432/demo", "postgres", "33321");
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery("SELECT * FROM cour;");
         while (rs.next()) {
@@ -24,7 +27,7 @@ public class PostgesqlConn {
     }
 
     public static void createTable () throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://" + hostName + ":5432/demo", "postgres", "33321");
         PreparedStatement ps = conn.prepareStatement("CREATE TABLE IF NOT EXISTS vals(" +   // CREATE TABLE IF NOT EXISTS vals
                                                                                         "CREATED_DATE NOT NULL PRIMARY KEY," +
                                                                                         "username varchar(225) NOT NULL UNIQUE," +
@@ -36,7 +39,7 @@ public class PostgesqlConn {
     }
 
     public static void createTable2 () throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://" + hostName + ":5432/demo", "postgres", "33321");
         Statement stmt = conn.createStatement();
         String sql = "CREATE TABLE IF NOT EXISTS COMPANY " +
                 "(ID INT PRIMARY KEY     NOT NULL," +
@@ -50,7 +53,7 @@ public class PostgesqlConn {
     }
 
     public static void createTable3 () throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://" + hostName + ":5432/demo", "postgres", "33321");
         Statement stmt = conn.createStatement();
         String sql = "CREATE TABLE IF NOT EXISTS T_TIME " +
                 "(ID timestamptz PRIMARY KEY NOT NULL," +
@@ -62,7 +65,7 @@ public class PostgesqlConn {
         conn.close();
     }
     public static void insert2 (Device[] data) throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://" + hostName + ":5432/demo", hostUser, hostPass);
         Statement stmt = conn.createStatement();
 
         for(Device d : data) {
@@ -81,7 +84,7 @@ public class PostgesqlConn {
     }
 
     public static void insert () throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://" + hostName + ":5432/demo", "postgres", "33321");
         conn.setAutoCommit(false);
         Statement stmt = conn.createStatement();
         String sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "
@@ -106,7 +109,7 @@ public class PostgesqlConn {
     }
 
     public static void select () throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres", "33321");
+        Connection conn = DriverManager.getConnection("jdbc:postgresql://" + hostName + ":5432/demo", "postgres", "33321");
         conn.setAutoCommit(false);
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
